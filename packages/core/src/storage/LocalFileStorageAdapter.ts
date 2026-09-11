@@ -81,6 +81,7 @@ export class LocalFileStorageAdapter implements StorageAdapter {
   }
 
   public async listCategories(): Promise<Category[]> {
+    await Promise.resolve();
     return this.body.categories;
   }
 
@@ -120,6 +121,7 @@ export class LocalFileStorageAdapter implements StorageAdapter {
   }
 
   public async listItems(): Promise<Item[]> {
+    await Promise.resolve();
     return this.body.items;
   }
 
@@ -160,6 +162,7 @@ export class LocalFileStorageAdapter implements StorageAdapter {
   }
 
   public async listTrash(): Promise<TrashEntry[]> {
+    await Promise.resolve();
     return this.body.trash;
   }
 
