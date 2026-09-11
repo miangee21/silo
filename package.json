@@ -1,0 +1,13 @@
+{
+  "name": "silo-workspace",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "lint": "eslint . --max-warnings=0",
+    "format": "prettier --write ."
+  }
+}
