@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "../ui/button";
 import { Copy, Check } from "lucide-react";
+import { copyWithAutoClear } from "../../clipboard/clipboard";
 
 interface CopyButtonProps {
   value: string;
@@ -19,8 +20,9 @@ export function CopyButton({ value }: CopyButtonProps) {
   const handleCopy = async () => {
     if (!value) return;
     try {
-      await navigator.clipboard.writeText(value);
+      await copyWithAutoClear(value, (text) => navigator.clipboard.writeText(text));
       setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
     } catch (e) {
       console.error("Failed to copy", e);
     }
@@ -34,11 +36,7 @@ export function CopyButton({ value }: CopyButtonProps) {
       onClick={() => void handleCopy()}
       title="Copy"
     >
-      {copied ? (
-        <Check className="text-success h-4 w-4" />
-      ) : (
-        <Copy className="h-4 w-4" />
-      )}
+      {copied ? <Check className="text-success h-4 w-4" /> : <Copy className="h-4 w-4" />}
     </Button>
   );
 }

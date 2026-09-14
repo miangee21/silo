@@ -30,16 +30,10 @@ export function FieldRow({
   onRemove,
   children,
 }: FieldRowProps) {
-  const {
-    attributes,
-    listeners,
-    setNodeRef,
-    transform,
-    transition,
-    isDragging,
-  } = useSortable({
-    id: field.id,
-  });
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } =
+    useSortable({
+      id: field.id,
+    });
 
   const style = {
     transform: CSS.Transform.toString(transform),
@@ -70,9 +64,7 @@ export function FieldRow({
         />
         <Select
           value={field.type}
-          onValueChange={(val) =>
-            onUpdateType(field.id, val as string as FieldType)
-          }
+          onValueChange={(val) => onUpdateType(field.id, val as string as FieldType)}
         >
           <SelectTrigger className="w-1/2">
             <SelectValue />
@@ -91,7 +83,7 @@ export function FieldRow({
       <div className="w-full flex-1">{children}</div>
 
       <div className="flex items-center gap-1">
-        <CopyButton value={field.value} />
+        {field.type !== "label" && <CopyButton value={field.value} />}
         <Button
           type="button"
           variant="ghost"
