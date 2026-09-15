@@ -1,6 +1,6 @@
 //packages/core/src/components/ui/label.tsx
 import * as React from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@silo/core/lib/utils";
 
 function Label({ className, ...props }: React.ComponentProps<"label">) {
   return (

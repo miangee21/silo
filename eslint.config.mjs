@@ -6,9 +6,9 @@ import reactRefresh from "eslint-plugin-react-refresh";
 export default [
   {
     ignores: [
-      "dist",
-      "node_modules",
-      "src-tauri",
+      "**/dist/**",
+      "**/node_modules/**",
+      "**/src-tauri/**",
       "eslint.config.mjs",
       "packages/core/src/components/ui/**",
     ],
@@ -23,7 +23,9 @@ export default [
         project: [
           "./packages/core/tsconfig.json",
           // "./apps/silo/tsconfig.json",
-          // "./apps/silo-lite/tsconfig.json",
+          // "./apps/silo/tsconfig.node.json",
+          "./apps/silo-lite/tsconfig.json",
+          "./apps/silo-lite/tsconfig.node.json",
         ],
         tsconfigRootDir: import.meta.dirname,
       },
