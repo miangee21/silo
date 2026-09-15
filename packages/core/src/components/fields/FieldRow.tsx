@@ -83,7 +83,9 @@ export function FieldRow({
       <div className="w-full flex-1">{children}</div>
 
       <div className="flex items-center gap-1">
-        {field.type !== "label" && <CopyButton value={field.value} />}
+        {field.type !== "label" && field.type !== "password" && (
+          <CopyButton value={field.value} />
+        )}
         <Button
           type="button"
           variant="ghost"
